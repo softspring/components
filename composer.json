@@ -1,0 +1,8 @@
+{
+    "name": "softspring/components",
+    "description": "This library provides some Symfony components like templates.",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
