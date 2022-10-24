@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}" class="{{ html_classes|default('') }}">
 <head>
+    {% block head_begin %}{% endblock head_begin %}
     <meta charset="UTF-8"/>
     {% block viewport %}
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -35,6 +36,7 @@
     {% endblock %}
 </head>
 <body class="{{ body_classes|default('') }}">
+{% block body_begin %}{% endblock body_begin %}
 {% block body %}{% endblock %}
 {% block javascripts %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
