@@ -40,7 +40,13 @@
 {% else %}
     {% block empty %}
         <div class="p-5 m-5">
-            <p class="text-center text-muted">{{ empty_message|default('The list is empty') }}</p>
+            <p class="text-center text-muted">
+                {% if filter_form|default(false) and filter_form.vars.submitted %}
+                    {{ no_matches_message|default('No elements found, try to be less restrictive.') }}
+                {% else %}
+                    {{ empty_message|default('The list is empty') }}
+                {% endif %}
+            </p>
         </div>
     {% endblock empty %}
 {% endif %}
