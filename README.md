@@ -13,8 +13,8 @@ Adds some general facilities and extra features to Symfony projects.
 * [1. Installation](docs/1_installation.md)
 * [2. Concepts](docs/2_concepts.md)
 * [3. Base template](docs/3_base_template.md)
-* 4. Layouts
-* 5. Components
+* 4- Layouts
+* 5- Components
 
 ## License
 
