@@ -26,7 +26,6 @@ You can override this template if you want to define your own base template or i
 
 ```twig
 {# bundles/SfsComponentsBundle/base-bootstrap5.html.twig #}
-{# bundles/SfsComponentsBundle/base.html.twig also works, but can be troubled with theme changing #}
 {% extends '@!SfsComponents/base-bootstrap5.html.twig' %}
 
 {% block seo %}
@@ -34,6 +33,9 @@ You can override this template if you want to define your own base template or i
     <meta name="description" content="{% block description %}{% endblock description %}" />
 {% endblock seo %}
 ```
+
+> It would be the same if you rewrite *base.html.twig* insead of *base-bootstrap5.html.twig*, but it could
+> conflict with theming. 
 
 The **layout**, that extends the base template, can include the visual page structure, such as navbars and menus
 and provides the layout for the contents.
