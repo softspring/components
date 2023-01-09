@@ -25,7 +25,8 @@ and the required twig blocks.
 You can override this template if you want to define your own base template or include some basic things:
 
 ```twig
-{# bundles/SfsComponents/base-bootstrap5.html.twig #}
+{# bundles/SfsComponentsBundle/base-bootstrap5.html.twig #}
+{# bundles/SfsComponentsBundle/base.html.twig also works, but can be troubled with theme changing #}
 {% extends '@!SfsComponents/base-bootstrap5.html.twig' %}
 
 {% block seo %}
