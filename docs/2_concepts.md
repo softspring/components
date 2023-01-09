@@ -2,17 +2,6 @@
 
 This package provides some template *components* for Symfony projects.
 
-## Configuration
-
-This is not a bundle, so you must configure the twig namespace manually:
-
-```yaml
-# config/packages/twig.yaml
-twig:
-    paths:
-        '%kernel.project_dir%/vendor/softspring/components/templates': 'SfsComponents'
-```
-
 ## Structure
 
 The are some components provided by now, like flash-messages and paginator, and some base templates like *base*
