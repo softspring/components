@@ -1,0 +1,48 @@
+{% if collection is not defined or collection|length %}
+    <table
+        class="ui celled table {{ classes is not defined ? 'table-borderless table-striped table-hover ' ~ (append_classes|default(''))  : classes }}">
+        {% block thead %}
+            <thead>
+            <tr>
+                {% block ths %}
+                {% endblock ths %}
+            </tr>
+            </thead>
+        {% endblock thead %}
+
+        {% block tbody %}
+            <tbody>
+            {% for element in collection %}
+                {# TODO: make row clickable url configurable #}
+                <tr>
+                    {% block tds %}
+                        {# use element variable to show row data #}
+                    {% endblock tds %}
+
+                    {% block actions %}
+                    {% endblock actions %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        {% endblock tbody %}
+    </table>
+{% else %}
+    {% block empty %}
+        <div class="ui icon info message">
+            <i class="info circle icon"></i>
+            <div class="content">
+                <div class="header">
+                    Info
+                </div>
+                <p>
+                    {% if filter_form|default(false) and filter_form.vars.submitted %}
+                        {{ no_matches_message|default('No elements found, try to be less restrictive.') }}
+                    {% else %}
+                        {{ empty_message|default('The list is empty') }}
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    {% endblock empty %}
+{% endif %}
+
