@@ -1,0 +1,32 @@
+{% trans_default_domain 'sfs_components' %}
+{% set current_route = app.request.attributes.get('_route') %}
+{% set current_route_params = app.request.attributes.get('_route_params') %}
+
+<div class="ui pagination menu">
+    {% if not collection.isFirstPage %}
+        <a class="item"
+           href="{{ url(current_route, app.request.query.all()|merge(current_route_params)|merge({ page: collection.prevPage })) }}"
+           rel="prev">{{ 'pager.prev'|trans }}</a>
+    {% else %}
+        <div class="disabled item">{{ 'pager.prev'|trans }}</div>
+    {% endif %}
+
+    {% for page in collection.collapsedPages(7, true) %}
+        {% if page == null %}
+            <div class="disabled item">…</div>
+        {% elseif page == collection.page %}
+            <div class="active item" aria-current="page">{{ page }}</div>
+        {% else %}
+            <a class="item"
+               href="{{ url(current_route, app.request.query.all()|merge(current_route_params)|merge({ page: page })) }}">{{ page }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if not collection.isLastPage %}
+        <a class="item"
+           href="{{ url(current_route, app.request.query.all()|merge(current_route_params)|merge({ page: collection.nextPage })) }}"
+           rel="prev">{{ 'pager.next'|trans }}</a>
+    {% else %}
+        <div class="disabled item">{{ 'pager.next'|trans }}</div>
+    {% endif %}
+</div>
