@@ -1,13 +1,11 @@
 {% if filter_form|default(false) and (collection|length or filter_form.vars.submitted) %}
     {% block filters_form %}
-    <div>
         {{ form_start(filter_form) }}
         {% block filters %}
             {{ form_widget(filter_form) }}
         {% endblock filters %}
         {{ form_rest(filter_form) }}
         {{ form_end(filter_form) }}
-    </div>
     {% endblock filters_form %}
 {% endif %}
 
