@@ -1,4 +1,4 @@
-{% if filter_form|default(false) and (collection|length or filter_form.vars.submitted) %}
+{% if filter_form|default(false) and (collection|length or filter_form.vars.data|filter(v=>v) is not empty) %}
     {% block filters_form %}
         {{ form_start(filter_form) }}
         {% block filters %}
@@ -51,13 +51,13 @@
 {% else %}
     {% block empty %}
         <div class="p-5 m-5">
-            <p class="text-center text-muted">
-                {% if filter_form|default(false) and filter_form.vars.submitted %}
-                    {{ no_matches_message|default('No elements found, try to be less restrictive.') }}
-                {% else %}
-                    {{ empty_message|default('The list is empty') }}
-                {% endif %}
-            </p>
+            {% if filter_form|default(false) and filter_form.vars.data|filter(v=>v) is not empty %}
+                <p class="text-center text-muted">{{ no_matches_message|default('No elements found, try to be less restrictive.') }}</p>
+            {% else %}
+                {% block empty_message %}
+                    <p class="text-center text-muted">{{ empty_message|default('The list is empty') }}</p>
+                {% endblock empty_message %}
+            {% endif %}
         </div>
     {% endblock empty %}
 {% endif %}
