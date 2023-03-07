@@ -1,4 +1,17 @@
-{% if collection is not defined or collection|length %}
+{% if filter_form|default(false) and (collection|length or filter_form.vars.submitted) %}
+    {% block filters_form %}
+    <div>
+        {{ form_start(filter_form) }}
+        {% block filters %}
+            {{ form_widget(filter_form) }}
+        {% endblock filters %}
+        {{ form_rest(filter_form) }}
+        {{ form_end(filter_form) }}
+    </div>
+    {% endblock filters_form %}
+{% endif %}
+
+{% if collection|length %}
     <table class="table {{ classes is not defined ? 'table-borderless table-striped table-hover ' ~ (append_classes|default(''))  : classes }}">
         {% block thead %}
             <thead>
