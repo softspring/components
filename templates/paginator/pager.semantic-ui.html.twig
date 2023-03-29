@@ -1,11 +1,12 @@
 {% trans_default_domain 'sfs_components' %}
-{% set current_route = app.request.attributes.get('_route') %}
-{% set current_route_params = app.request.attributes.get('_route_params') %}
+{% set pagination_route = pagination_route is defined ? pagination_route : app.request.attributes.get('_route') %}
+{% set pagination_route_attributes = pagination_route_attributes is defined ? pagination_route_attributes : app.request.attributes.get('_route_params') %}
+{% set query_params = query_params is defined ? query_params : app.request.query.all() %}
 
 <div class="ui pagination menu">
     {% if not collection.isFirstPage %}
         <a class="item"
-           href="{{ url(current_route, app.request.query.all()|merge(current_route_params)|merge({ page: collection.prevPage })) }}"
+           href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.prevPage })) }}"
            rel="prev">{{ 'pager.prev'|trans }}</a>
     {% else %}
         <div class="disabled item">{{ 'pager.prev'|trans }}</div>
@@ -18,13 +19,13 @@
             <div class="active item" aria-current="page">{{ page }}</div>
         {% else %}
             <a class="item"
-               href="{{ url(current_route, app.request.query.all()|merge(current_route_params)|merge({ page: page })) }}">{{ page }}</a>
+               href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': page })) }}">{{ page }}</a>
         {% endif %}
     {% endfor %}
 
     {% if not collection.isLastPage %}
         <a class="item"
-           href="{{ url(current_route, app.request.query.all()|merge(current_route_params)|merge({ page: collection.nextPage })) }}"
+           href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.nextPage })) }}"
            rel="prev">{{ 'pager.next'|trans }}</a>
     {% else %}
         <div class="disabled item">{{ 'pager.next'|trans }}</div>
