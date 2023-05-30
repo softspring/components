@@ -1,5 +1,16 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+
+{% block header_javascripts %}
+    {{ encore_entry_script_tags('admin') }}
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
+
 {% block body %}
     <div class="d-flex flex-col align-items-stretch min-vh-100 pt-5">
         {% block header %}
@@ -15,9 +26,9 @@
 
                         <div class="dropdown text-end">
                             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                {% if sfs_user_is('avatar') %}
-                                    <img alt="{{ app.user.displayName }}" src="{{ app.user.avatarUrl }}" width="32" height="32" class="rounded-circle me-2">
-                                {% endif %}
+{#                                {% if sfs_user_is('avatar') %}#}
+{#                                    <img alt="{{ app.user.displayName }}" src="{{ app.user.avatarUrl }}" width="32" height="32" class="rounded-circle me-2">#}
+{#                                {% endif %}#}
                             </a>
                             <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" data-popper-placement="bottom-start" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 34px);">
                                 {% if route_defined('sfs_user_preferences') %}
