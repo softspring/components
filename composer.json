@@ -6,7 +6,8 @@
     "minimum-stability": "dev",
     "prefer-stable": false,
     "require-dev": {
-        "phpstan/phpstan": "^1.9"
+        "friendsofphp/php-cs-fixer": "^3.40",
+        "phpstan/phpstan": "^1.10"
     },
     "config": {
         "sort-packages": true
