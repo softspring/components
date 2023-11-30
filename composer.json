@@ -11,13 +11,6 @@
     "config": {
         "sort-packages": true
     },
-    "extra": {
-        "branch-alias": {
-            "dev-5.0": "5.0.x-dev",
-            "dev-5.1": "5.1.x-dev",
-            "dev-5.2": "5.2.x-dev"
-        }
-    },
     "autoload": {
         "psr-4": {
             "Softspring\\Component\\Components\\": "src/"
