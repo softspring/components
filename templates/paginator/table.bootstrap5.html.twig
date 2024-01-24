@@ -1,4 +1,4 @@
-{% if filter_form|default(false) and (collection|length or filter_form.vars.data|filter(v=>v) is not empty) %}
+{% if filter_form|default(false) and (collection|length or filter_form.vars.data|default([])|filter(v=>v) is not empty) %}
     {% block filters_form %}
         {{ form_start(filter_form) }}
         {% block filters %}
@@ -51,7 +51,7 @@
 {% else %}
     {% block empty %}
         <div class="p-5 m-5">
-            {% if filter_form|default(false) and filter_form.vars.data|filter(v=>v) is not empty %}
+            {% if filter_form|default(false) and filter_form.vars.data|default([])|filter(v=>v) is not empty %}
                 <p class="text-center text-muted">{{ no_matches_message|default('No elements found, try to be less restrictive.') }}</p>
             {% else %}
                 {% block empty_message %}
