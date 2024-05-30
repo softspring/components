@@ -8,7 +8,7 @@
     <ul class="pagination">
         {% if not collection.isFirstPage %}
             <li class="page-item">
-                <a class="page-link" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.prevPage })) }}" aria-label="Previous">
+                <a class="page-link border-0 py-0" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.prevPage })) }}" aria-label="Previous">
                     <span class="mdi mdi-24px mdi-chevron-left align-middle"></span>
                     <span class="sr-only">{{ 'pager.prev'|trans }}</span>
                 </a>
@@ -19,13 +19,13 @@
             {% if page == null %}
                 <li class="page-item">...</li>
             {% else %}
-                <li class="page-item {{ page == collection.page | default(false)? ' active' : ''}}"><a class="page-link" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': page })) }}">{{ page }}</a></li>
+                <li class="page-item {{ page == collection.page | default(false)? ' active' : ''}}"><a class="page-link border-0" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': page })) }}">{{ page }}</a></li>
             {% endif %}
         {% endfor %}
 
         {% if not collection.isLastPage %}
             <li class="page-item">
-                <a class="page-link" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.nextPage })) }}" aria-label="Next">
+                <a class="page-link border-0 py-0" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.nextPage })) }}" aria-label="Next">
                     <span class="sr-only">{{ 'pager.next'|trans }}</span>
                     <span class="mdi mdi-24px mdi-chevron-right align-middle"></span>
                 </a>
