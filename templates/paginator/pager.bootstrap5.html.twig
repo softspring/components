@@ -5,10 +5,10 @@
 
 <nav aria-label="Page navigation" class="py-3 d-flex justify-content-center justify-content-md-between align-items-center flex-column flex-md-row">
     <span class="text-gray-600 font-weight-bold">{{ 'pager.total'|trans }} {{ collection.total }}</span>
-    <ul class="pagination justify-content-center flex-wrap mb-0">
+    <ul class="pagination">
         {% if not collection.isFirstPage %}
-            <li class="page-item p-1">
-                <a class="page-link rounded border-0 py-1" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.prevPage })) }}" aria-label="Previous">
+            <li class="page-item">
+                <a class="page-link border-0 py-0" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.prevPage })) }}" aria-label="Previous">
                     <span class="mdi mdi-24px mdi-chevron-left align-middle"></span>
                     <span class="sr-only">{{ 'pager.prev'|trans }}</span>
                 </a>
@@ -17,15 +17,15 @@
 
         {% for page in collection.collapsedPages(7, true) %}
             {% if page == null %}
-                <li class="page-item p-1">...</li>
+                <li class="page-item">...</li>
             {% else %}
-                <li class="page-item p-1 {{ page == collection.page | default(false)? ' active' : ''}}"><a class="page-link rounded border-0" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': page })) }}">{{ page }}</a></li>
+                <li class="page-item {{ page == collection.page | default(false)? ' active' : ''}}"><a class="page-link border-0" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': page })) }}">{{ page }}</a></li>
             {% endif %}
         {% endfor %}
 
         {% if not collection.isLastPage %}
-            <li class="page-item p-1">
-                <a class="page-link rounded border-0 py-1" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.nextPage })) }}" aria-label="Next">
+            <li class="page-item">
+                <a class="page-link border-0 py-0" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.nextPage })) }}" aria-label="Next">
                     <span class="sr-only">{{ 'pager.next'|trans }}</span>
                     <span class="mdi mdi-24px mdi-chevron-right align-middle"></span>
                 </a>
