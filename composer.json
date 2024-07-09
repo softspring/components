@@ -5,6 +5,9 @@
     "license": "MIT",
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "require": {
+        "symfony/twig-bundle": "^5.4|^6.0|^7.0"
+    },
     "require-dev": {
         "phpstan/phpstan": "^1.9",
         "rector/rector": "^1.0"
