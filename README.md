@@ -4,7 +4,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/softspring/components/v/unstable.svg)](https://packagist.org/packages/softspring/components)
 [![License](https://poser.pugx.org/softspring/components/license.svg)](https://packagist.org/packages/softspring/components)
 [![Total Downloads](https://poser.pugx.org/softspring/components/downloads)](https://packagist.org/packages/softspring/components)
-[![Build status](https://github.com/softspring/components/actions/workflows/php.yml/badge.svg?branch=5.2)](https://github.com/softspring/components/actions/workflows/php.yml)
+[![Build status](https://github.com/softspring/components/actions/workflows/php.yml/badge.svg?branch=5.3)](https://github.com/softspring/components/actions/workflows/php.yml)
 
 Adds some general facilities and extra features to Symfony projects.
 
