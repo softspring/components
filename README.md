@@ -1,10 +1,10 @@
 # Components
 
-[![Latest Stable Version](https://poser.pugx.org/softspring/components/v/stable.svg)](https://packagist.org/packages/softspring/components)
-[![Latest Unstable Version](https://poser.pugx.org/softspring/components/v/unstable.svg)](https://packagist.org/packages/softspring/components)
-[![License](https://poser.pugx.org/softspring/components/license.svg)](https://packagist.org/packages/softspring/components)
-[![Total Downloads](https://poser.pugx.org/softspring/components/downloads)](https://packagist.org/packages/softspring/components)
-[![Build status](https://github.com/softspring/components/actions/workflows/php.yml/badge.svg?branch=5.3)](https://github.com/softspring/components/actions/workflows/php.yml)
+![Latest Stable](https://img.shields.io/packagist/v/softspring/components?label=stable&style=flat-square)
+![Latest Unstable](https://img.shields.io/packagist/v/softspring/components?label=unstable&style=flat-square&include_prereleases)
+![License](https://img.shields.io/packagist/l/softspring/components?style=flat-square)
+![Downloads](https://img.shields.io/packagist/dt/softspring/components?style=flat-square)
+[![CI](https://img.shields.io/github/actions/workflow/status/softspring/components/php.yml?branch=5.3&style=flat-square&label=CI)](https://github.com/softspring/components/actions/workflows/php.yml)
 
 Adds some general facilities and extra features to Symfony projects.
 
