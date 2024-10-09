@@ -3,8 +3,9 @@
 {% block sidebar %}
 <div class="nav-pills p-0 m-0">
     {% for sidebar_block in sidebar_blocks %}
+        {% if sidebar_block.title is not empty %}
         <div class="nav-link text-lowercase text-muted" style="font-variant: small-caps">{{ sidebar_block.title }}</div>
-
+        {% endif %}
         {% for element in sidebar_block.elements %}
             {% if element.enabled %}
                 <a class="nav-link {{ active_for_routes(element.active_expression, null, active_for_routes_class) }}" href="{{ url(element.route) }}">
