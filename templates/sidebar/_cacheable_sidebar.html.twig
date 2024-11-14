@@ -1,14 +1,19 @@
 {% trans_default_domain 'sfs_components' %}
 
-{% set cacheable = admin_menu._cacheable|default(false) %}
-{% set translation_domain = admin_menu._translation_domain|default('sfs_components') %}
-{% set active_for_routes_class = admin_menu._active_for_routes_class|default('active') %}
-{% set show_not_granted = admin_menu._show_not_granted|default(false) %}
+{% if menu is not defined and admin_menu is defined %}
+    {% deprecated 'Sidebar component uses admin_menu as default value, but this behaviour is deprecated from 5.4 and will be removed in 6.0. Please set menu variable when importing template.' %}
+    {% set menu = admin_menu %}
+{% endif %}
+
+{% set cacheable = menu._cacheable|default(false) %}
+{% set translation_domain = menu._translation_domain|default('sfs_components') %}
+{% set active_for_routes_class = menu._active_for_routes_class|default('active') %}
+{% set show_not_granted = menu._show_not_granted|default(false) %}
 
 {% if not cacheable or not app.request.session.has('admin_sidebar_cache_for_user') %}
     {% set sidebar_blocks = [] %}
 
-    {% for key, block in admin_menu|default([])|filter((block, key) => not (key starts with '_') ) %}
+    {% for key, block in menu|default([])|filter((block, key) => not (key starts with '_') ) %}
         {% if block|default([])|filter((element, key) => key != 'translation_key')|filter( (element, key) => route_defined(element.route) and (show_not_granted or not (element.role|default(false)) or is_granted(element.role)))|length  %}
             {% set block_elements = [] %}
             {% for key, element in block|default([])|filter((element, key) => key != 'translation_key') %}
