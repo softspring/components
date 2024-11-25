@@ -22,7 +22,7 @@
 
         {% block tbody %}
             <tbody>
-            {% for element in collection %}
+            {% for key,element in collection %}
                 {# TODO: make row clickable url configurable #}
                 <tr>
                     {% block tds %}
