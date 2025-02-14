@@ -2,7 +2,7 @@
     "name": "softspring/components",
     "description": "This library provides some Symfony components like templates.",
     "type": "symfony-bundle",
-    "license": "MIT",
+    "license": "AGPL-3.0",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
