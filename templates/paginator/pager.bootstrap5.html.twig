@@ -8,7 +8,7 @@
     <ul class="pagination mb-0">
         {% if not collection.isFirstPage %}
             <li class="page-item">
-                <a class="page-link" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.prevPage })) }}" aria-label="Previous">
+                <a class="page-link" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.prevPage })|filter((v, k)=>v !=1 or k != 'page')) }}" aria-label="Previous">
                     <span class="bi bi-chevron-left align-middle"></span>
                     <span class="page-prev-text">{{ 'pager.prev'|trans }}</span>
                 </a>
@@ -19,13 +19,13 @@
             {% if page == null %}
                 <li class="page-item">...</li>
             {% else %}
-                <li class="page-item {{ page == collection.page | default(false)? ' active' : ''}}"><a class="page-link" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': page })) }}">{{ page }}</a></li>
+                <li class="page-item {{ page == collection.page | default(false)? ' active' : ''}}"><a class="page-link" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': page })|filter((v, k)=>v !=1 or k != 'page')) }}">{{ page }}</a></li>
             {% endif %}
         {% endfor %}
 
         {% if not collection.isLastPage %}
             <li class="page-item">
-                <a class="page-link" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.nextPage })) }}" aria-label="Next">
+                <a class="page-link" href="{{ url(pagination_route, query_params|merge(pagination_route_attributes)|merge({ 'page': collection.nextPage })|filter((v, k)=>v !=1 or k != 'page')) }}" aria-label="Next">
                     <span class="page-next-text">{{ 'pager.next'|trans }}</span>
                     <span class="bi bi-chevron-right align-middle"></span>
                 </a>
