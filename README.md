@@ -8,10 +8,18 @@
 
 Adds some general facilities and extra features to Symfony projects.
 
+## Armonic
+
+This bundle is part of Armonic.
+
 ## Documentation
 
-You have all information in [Armonic Docs-Components](https://armonic.softspring.es/latest/components/components/install)
+[Armonic Documentation](https://armonic.softspring.es/latest/components/components/install)
+
+## Contributing
+
+[Report issues](https://github.com/softspring/components/issues) and [send Pull Requests](https://github.com/softspring/components/pulls)
 
 ## License
 
-This bundle is under the MIT license. See the complete license in the bundle [LICENSE](LICENSE) file.
+This package is free and released under the [MIT license](LICENSE).
