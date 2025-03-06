@@ -10,11 +10,11 @@ Adds some general facilities and extra features to Symfony projects.
 
 ## Armonic
 
-This bundle is part of Armonic.
+This bundle is part of [Armonic](https://softspring.es/en/armonic).
 
 ## Documentation
 
-[Armonic Documentation](https://armonic.softspring.es/latest/components/components/install)
+[Documentation](https://armonic.softspring.es/latest/components/components/install)
 
 ## Contributing
 
@@ -22,4 +22,4 @@ This bundle is part of Armonic.
 
 ## License
 
-This package is free and released under the [MIT license](LICENSE).
+This package is free and released under the [AGPL-3.0 license](LICENSE).
