@@ -11,7 +11,6 @@ permissions:
 
 env:
     XDEBUG_MODE: coverage
-    CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
 jobs:
     build:
@@ -69,5 +68,5 @@ jobs:
             -   name: Upload coverage to Codecov
                 uses: codecov/codecov-action@v5
                 with:
-                    token: ${{ env.CODECOV_TOKEN }}
+                    token: ${{ secrets.CODECOV_TOKEN }}
                     files: clover.xml
