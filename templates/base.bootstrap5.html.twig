@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app.request.locale }}" class="{{ html_classes|default('') }}">
+<html lang="{{ app.request.locale|default('en') }}" class="{{ html_classes|default('') }}">
 <head>
     {% block head_begin %}{% endblock head_begin %}
     <meta charset="UTF-8"/>

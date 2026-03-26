@@ -45,8 +45,10 @@
                                 {% if route_defined('sfs_user_change_password') %}
                                     <li><a class="dropdown-item" href="{{ url('sfs_user_change_password') }}"><span class="icon icon-uniE880"></span> Change password</a></li>
                                 {% endif %}
-                                <li><div class="dropdown-divider"></div></li>
-                                <li><a class="dropdown-item" href="{{ url('sfs_user_logout') }}"><span class="icon icon-power"></span> Logout</a></li>
+                                {% if route_defined('sfs_user_logout') %}
+                                    <li><div class="dropdown-divider"></div></li>
+                                    <li><a class="dropdown-item" href="{{ url('sfs_user_logout') }}"><span class="icon icon-power"></span> Logout</a></li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
