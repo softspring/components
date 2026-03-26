@@ -4,9 +4,14 @@ declare(strict_types=1);
 
 namespace Softspring\Component\Components\Tests\Twig;
 
+use ArrayIterator;
+use Countable;
+use IteratorAggregate;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 use Symfony\Bridge\Twig\Extension\TranslationExtension;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Traversable;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\Loader\ArrayLoader;
@@ -111,10 +116,10 @@ final class ComponentsTestExtension extends AbstractExtension
             new TwigFunction('is_granted', fn (): bool => false),
             new TwigFunction('url', function (string $route, array $parameters = []): string {
                 if (!in_array($route, $this->definedRoutes, true)) {
-                    throw new \RuntimeException(sprintf('Undefined route "%s".', $route));
+                    throw new RuntimeException(sprintf('Undefined route "%s".', $route));
                 }
 
-                return '/'.$route.(empty($parameters) ? '' : '?'.http_build_query($parameters));
+                return '/'.$route.([] === $parameters ? '' : '?'.http_build_query($parameters));
             }),
         ];
     }
@@ -122,18 +127,23 @@ final class ComponentsTestExtension extends AbstractExtension
 
 final class IdentityTranslatorStub implements TranslatorInterface
 {
+    /**
+     * @var array<string, string>
+     */
+    private array $messages = [
+        'pager.prev' => 'Previous',
+        'pager.next' => 'Next',
+        'pager.total' => 'Total',
+    ];
+
     public function getLocale(): string
     {
         return 'en';
     }
 
-    public function setLocale(string $locale): void
-    {
-    }
-
     public function trans(?string $id, array $parameters = [], ?string $domain = null, ?string $locale = null): string
     {
-        return $id ?? '';
+        return null !== $id ? ($this->messages[$id] ?? $id) : '';
     }
 }
 
@@ -145,7 +155,7 @@ final class AppStub
     {
         $this->user = new UserStub();
 
-        if (null !== $this->request) {
+        if ($this->request instanceof RequestStub) {
             $this->request->session = $this->session;
         }
     }
@@ -198,6 +208,7 @@ final class ParameterBagStub
 final class SessionStub
 {
     public FlashBagStub $flashBag;
+    public FlashBagStub $flashbag;
 
     /**
      * @param array<string, list<string>> $messages
@@ -205,20 +216,17 @@ final class SessionStub
     public function __construct(array $messages = [])
     {
         $this->flashBag = new FlashBagStub($messages);
+        $this->flashbag = $this->flashBag;
     }
 
-    public function has(string $key): bool
+    public function has(): bool
     {
         return false;
     }
 
-    public function get(string $key): mixed
+    public function get(): mixed
     {
         return null;
-    }
-
-    public function set(string $key, mixed $value): void
-    {
     }
 }
 
@@ -248,7 +256,7 @@ final class FlashBagStub
     }
 }
 
-final class PaginationStub implements \IteratorAggregate, \Countable
+final class PaginationStub implements IteratorAggregate, Countable
 {
     public int $page = 2;
     public int $prevPage = 1;
@@ -256,9 +264,9 @@ final class PaginationStub implements \IteratorAggregate, \Countable
     public bool $isFirstPage = false;
     public bool $isLastPage = false;
 
-    public function getIterator(): \Traversable
+    public function getIterator(): Traversable
     {
-        return new \ArrayIterator([]);
+        return new ArrayIterator([]);
     }
 
     public function count(): int
