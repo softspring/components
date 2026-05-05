@@ -2,3 +2,12 @@ pager:
     total: "Total"
     prev: "Anterior"
     next: "Siguiente"
+layout:
+    sidebar:
+        open: "Abrir navegacion"
+        close: "Cerrar navegacion"
+        toggle: "Contraer navegacion"
+    user_menu:
+        profile: "Perfil"
+        change_password: "Cambiar contrasena"
+        logout: "Cerrar sesion"

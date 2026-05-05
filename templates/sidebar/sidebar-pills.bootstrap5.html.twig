@@ -1,21 +1,21 @@
 {% extends '@SfsComponents/sidebar/_cacheable_sidebar.html.twig' %}
 
 {% block sidebar %}
-<div class="nav-pills p-0 m-0">
+<div class="sfs-sidebar-pills {{ container_classes|trim }}">
     {% for sidebar_block in sidebar_blocks %}
         {% if sidebar_block.title is not empty %}
-        <div class="nav-link text-lowercase text-muted" style="font-variant: small-caps">{{ sidebar_block.title }}</div>
+        <div class="sfs-sidebar-section-title{{ loop.first ? ' is-first' : '' }} {{ section_title_classes }}{{ loop.first ? ' ' ~ section_title_first_classes : '' }}">{{ sidebar_block.title }}</div>
         {% endif %}
         {% for element in sidebar_block.elements %}
             {% if element.enabled %}
-                <a class="nav-link {{ active_for_routes(element.active_expression, null, active_for_routes_class) }}" href="{{ url(element.route) }}">
-                    {% if element.icon|default(false) %}<span class="{{ element.icon }}"></span>{% endif %}
-                    <span class="title text-capitalize">{{ element.text }}</span>
+                <a class="sfs-sidebar-item {{ item_classes }} {{ active_for_routes(element.active_expression, null, active_for_routes_class) }}" href="{{ url(element.route) }}">
+                    {% if element.icon|default(false) %}<span class="sfs-sidebar-item-icon {{ (element.icon ~ ' ' ~ icon_classes)|trim }}"></span>{% endif %}
+                    <span class="sfs-sidebar-item-title {{ title_classes }}">{{ element.text }}</span>
                 </a>
             {% else %}
-                <a class="nav-link {{ active_for_routes(element.active_expression, null, active_for_routes_class) }} disabled text-muted" href="#">
-                    {% if element.icon|default(false) %}<span class="{{ element.icon }}"></span>{% endif %}
-                    <span class="title text-capitalize">{{ element.text }}</span>
+                <a class="sfs-sidebar-item sfs-sidebar-item-disabled {{ item_classes }} {{ item_disabled_classes }} {{ active_for_routes(element.active_expression, null, active_for_routes_class) }}" href="#" tabindex="-1" aria-disabled="true">
+                    {% if element.icon|default(false) %}<span class="sfs-sidebar-item-icon {{ (element.icon ~ ' ' ~ icon_classes)|trim }}"></span>{% endif %}
+                    <span class="sfs-sidebar-item-title {{ title_classes }}">{{ element.text }}</span>
                 </a>
             {% endif %}
         {% endfor %}

@@ -1,0 +1,75 @@
+/*
+ * Compiled from assets/sidebar/sidebar-pills.bootstrap5.scss.
+ */
+
+.sfs-sidebar-pills {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0;
+    margin: 0;
+}
+
+.sfs-sidebar-section-title {
+    margin-top: 0.75rem;
+    padding: 0.25rem 0.875rem;
+    min-height: auto;
+    border-radius: 0;
+    color: #7a8598;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+    font-variant: small-caps;
+}
+
+.sfs-sidebar-section-title.is-first {
+    margin-top: 0;
+}
+
+.sfs-sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 2.75rem;
+    padding: 0.625rem 0.875rem;
+    border-radius: 0.5rem;
+    overflow-x: hidden;
+    color: #445066;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sfs-sidebar-item:hover {
+    background: #edf4ff;
+    color: #0d6efd;
+}
+
+.sfs-sidebar-item.sfs-sidebar-item-active {
+    background: #edf4ff;
+    color: #0d6efd;
+    box-shadow: inset 0 0 0 1px rgba(13, 110, 253, 0.28);
+}
+
+.sfs-sidebar-item.sfs-sidebar-item-disabled {
+    color: #8f98a8;
+    opacity: 0.72;
+}
+
+.sfs-sidebar-item.sfs-sidebar-item-disabled:hover {
+    background: transparent;
+    color: #8f98a8;
+    box-shadow: none;
+}
+
+.sfs-sidebar-item-title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sfs-sidebar-item-icon {
+    flex: 0 0 auto;
+}

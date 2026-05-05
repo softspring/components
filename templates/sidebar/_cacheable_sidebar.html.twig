@@ -7,8 +7,15 @@
 
 {% set cacheable = menu._cacheable|default(false) %}
 {% set translation_domain = menu._translation_domain|default('sfs_components') %}
-{% set active_for_routes_class = menu._active_for_routes_class|default('active') %}
+{% set active_for_routes_class = menu._active_for_routes_class|default('sfs-sidebar-item-active') %}
 {% set show_not_granted = menu._show_not_granted|default(false) %}
+{% set container_classes = menu._container_classes|default('') %}
+{% set section_title_classes = menu._section_title_classes|default('') %}
+{% set section_title_first_classes = menu._section_title_first_classes|default('') %}
+{% set item_classes = menu._item_classes|default('') %}
+{% set item_disabled_classes = menu._item_disabled_classes|default('') %}
+{% set title_classes = menu._title_classes|default('') %}
+{% set icon_classes = menu._icon_classes|default('') %}
 
 {% if not cacheable or not app.request.session.has('admin_sidebar_cache_for_user') %}
     {% set sidebar_blocks = [] %}
