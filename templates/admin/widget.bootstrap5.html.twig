@@ -1,0 +1,11 @@
+<div class="h-100 border rounded-2 bg-white shadow-sm">
+    <div class="p-4 h-100 d-flex flex-column justify-content-between">
+        <div>
+            {% block header %}
+                <h6 class="text-body-secondary text-uppercase small mb-3">{% block title %}{% endblock title %}</h6>
+            {% endblock header %}
+            {% block body %}{% endblock body %}
+        </div>
+        {% block footer %}{% endblock footer %}
+    </div>
+</div>

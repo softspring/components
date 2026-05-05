@@ -1,0 +1,380 @@
+/*
+ * Compiled from assets/styles/admin.bootstrap5.scss.
+ */
+
+:root {
+    --sfs-admin-sidebar-width: 17rem;
+    --sfs-admin-sidebar-collapsed-width: 5.25rem;
+    --sfs-admin-content-bg: var(--bs-body-bg, #f6f8fc);
+    --sfs-admin-surface-bg: #ffffff;
+    --sfs-admin-surface-border: rgba(15, 23, 42, 0.06);
+    --sfs-admin-shadow: 0 0.75rem 2rem rgba(15, 23, 42, 0.045);
+    --sfs-admin-muted: #7a8598;
+    --sfs-admin-hover-bg: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.08);
+    --sfs-admin-active-bg: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.11);
+    --sfs-admin-active-border: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.26);
+    --sfs-admin-disabled: #9aa3b2;
+}
+
+.sfs-admin-layout {
+    background: var(--sfs-admin-content-bg);
+}
+
+.sfs-admin-shell {
+    background: var(--sfs-admin-content-bg);
+}
+
+.sfs-admin-sidebar {
+    --bs-offcanvas-width: min(88vw, var(--sfs-admin-sidebar-width));
+    background: var(--sfs-admin-surface-bg);
+    border-color: var(--sfs-admin-surface-border) !important;
+    box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.02), 0 1rem 2rem rgba(15, 23, 42, 0.04);
+}
+
+.sfs-admin-main {
+    min-width: 0;
+}
+
+.sfs-admin-sidebar-top {
+    min-height: 5.25rem;
+    position: relative;
+}
+
+.sfs-admin-sidebar-scroll {
+    min-height: 0;
+    padding-inline: 0 !important;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(122, 133, 152, 0.2) transparent;
+    overscroll-behavior: contain;
+}
+
+.sfs-admin-sidebar-scroll::-webkit-scrollbar {
+    width: 0.45rem;
+}
+
+.sfs-admin-sidebar-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sfs-admin-sidebar-scroll::-webkit-scrollbar-thumb {
+    background: rgba(122, 133, 152, 0.18);
+    border: 1px solid transparent;
+    border-radius: 0.2rem;
+    background-clip: content-box;
+}
+
+.sfs-admin-sidebar-scroll:hover::-webkit-scrollbar-thumb {
+    background: rgba(122, 133, 152, 0.34);
+    background-clip: content-box;
+}
+
+.sfs-admin-sidebar-brand,
+.sfs-admin-sidebar-brand:hover {
+    color: inherit;
+}
+
+.sfs-admin-sidebar-brand-expanded,
+.sfs-admin-sidebar-brand-collapsed {
+    display: inline-flex;
+    align-items: center;
+}
+
+.sfs-admin-sidebar-brand-expanded img,
+.sfs-admin-sidebar-brand-collapsed img {
+    display: block;
+    max-height: 2.25rem;
+    width: auto;
+}
+
+.sfs-admin-sidebar-brand-collapsed {
+    display: none;
+}
+
+.sfs-admin-topbar {
+    background: transparent;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    backdrop-filter: blur(12px);
+}
+
+.sfs-admin-topbar .breadcrumb {
+    --bs-breadcrumb-divider-color: var(--sfs-admin-muted);
+    --bs-breadcrumb-item-active-color: var(--sfs-admin-muted);
+}
+
+.sfs-admin-topbar .breadcrumb-item,
+.sfs-admin-topbar .breadcrumb-item a {
+    color: var(--sfs-admin-muted);
+    text-decoration: none;
+}
+
+.sfs-admin-topbar .breadcrumb-item:last-child,
+.sfs-admin-topbar .breadcrumb-item:last-child a {
+    color: var(--bs-body-color);
+}
+
+.sfs-admin-user-trigger {
+    width: 2.75rem;
+    height: 2.75rem;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 0.5rem 1rem rgba(15, 23, 42, 0.05);
+}
+
+.sfs-admin-user-trigger img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sfs-admin-content {
+    background: var(--sfs-admin-content-bg);
+}
+
+.sfs-admin-content .container-fluid.bg-white {
+    background: var(--sfs-admin-surface-bg) !important;
+    border: 1px solid var(--sfs-admin-surface-border);
+    border-radius: 0.4rem;
+    box-shadow: var(--sfs-admin-shadow);
+}
+
+.sfs-admin-content .container-fluid.bg-white > :last-child {
+    margin-bottom: 0;
+}
+
+.sfs-admin-content .container-fluid.bg-white .sfs-admin-filters,
+.sfs-admin-content .container-fluid.bg-white .sfs-admin-table-surface,
+.sfs-admin-content .container-fluid.bg-white .sfs-admin-empty-state {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.sfs-admin-content .form-control,
+.sfs-admin-content .form-select {
+    border-radius: 0.3rem;
+    border-color: rgba(15, 23, 42, 0.1);
+}
+
+.sfs-admin-content .form-control:focus,
+.sfs-admin-content .form-select:focus {
+    border-color: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.45);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb, 13, 110, 253), 0.12);
+}
+
+.sfs-admin-content .btn {
+    border-radius: 0.3rem;
+}
+
+.sfs-admin-filters,
+.sfs-admin-table-surface,
+.sfs-admin-empty-state {
+    background: var(--sfs-admin-surface-bg);
+    border: 1px solid var(--sfs-admin-surface-border);
+    border-radius: 0.4rem;
+    box-shadow: var(--sfs-admin-shadow);
+}
+
+.sfs-admin-filters {
+    padding: 1rem;
+}
+
+.sfs-admin-table-surface .table {
+    --bs-table-bg: transparent;
+    margin-bottom: 0;
+}
+
+.sfs-admin-table-surface thead th {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--sfs-admin-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-bottom-color: var(--sfs-admin-surface-border);
+}
+
+.sfs-admin-table-surface tbody td {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-color: rgba(15, 23, 42, 0.05);
+}
+
+.sfs-admin-table-surface tbody tr:hover {
+    --bs-table-hover-bg: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.035);
+}
+
+.sfs-admin-table-surface tfoot td {
+    padding: 1rem 1.25rem;
+    border-top-color: var(--sfs-admin-surface-border);
+}
+
+.sfs-admin-empty-state {
+    padding: 3rem 1.5rem;
+}
+
+.sfs-admin-flashes {
+    width: min(28rem, calc(100vw - 1.5rem));
+    z-index: 1085;
+    pointer-events: none;
+}
+
+.sfs-admin-flashes .alert {
+    pointer-events: auto;
+    border-width: 1px;
+    border-radius: 0.35rem;
+    box-shadow: 0 1rem 2rem rgba(15, 23, 42, 0.08);
+}
+
+.sfs-sidebar-pills {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    padding: 0;
+    margin: 0;
+}
+
+.sfs-sidebar-section-title {
+    margin-top: 0.75rem;
+    padding: 0.5rem 1.5rem 0.25rem;
+    min-height: auto;
+    color: var(--sfs-admin-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+    font-variant: small-caps;
+}
+
+.sfs-sidebar-section-title.is-first {
+    margin-top: 0;
+}
+
+.sfs-sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 2.75rem;
+    padding: 0.675rem 1.5rem;
+    border-radius: 0;
+    overflow-x: hidden;
+    color: #445066;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sfs-sidebar-item:hover {
+    background: var(--sfs-admin-hover-bg);
+    color: var(--bs-primary);
+}
+
+.sfs-sidebar-item.sfs-sidebar-item-active {
+    background: var(--sfs-admin-active-bg);
+    color: var(--bs-primary);
+    box-shadow: inset 3px 0 0 0 var(--bs-primary);
+}
+
+.sfs-sidebar-item.sfs-sidebar-item-disabled {
+    color: var(--sfs-admin-disabled);
+    opacity: 0.72;
+}
+
+.sfs-sidebar-item.sfs-sidebar-item-disabled:hover {
+    background: transparent;
+    color: var(--sfs-admin-disabled);
+    box-shadow: none;
+}
+
+.sfs-sidebar-item-title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sfs-sidebar-item-icon {
+    flex: 0 0 auto;
+    font-size: 1rem;
+}
+
+@media (min-width: 992px) {
+    .sfs-admin-sidebar.offcanvas-lg {
+        position: sticky;
+        top: 0;
+        visibility: visible !important;
+        transform: none !important;
+        width: var(--sfs-admin-sidebar-width);
+        min-width: var(--sfs-admin-sidebar-width);
+        height: 100vh;
+        max-height: 100vh;
+        transition: width 0.2s ease, min-width 0.2s ease;
+    }
+
+    .sfs-admin-main {
+        height: 100vh;
+        max-height: 100vh;
+    }
+
+    .sfs-admin-sidebar-collapsed .sfs-admin-sidebar.offcanvas-lg {
+        width: var(--sfs-admin-sidebar-collapsed-width);
+        min-width: var(--sfs-admin-sidebar-collapsed-width);
+    }
+
+    .sfs-admin-sidebar-collapsed .sfs-admin-sidebar-scroll {
+        padding-inline: 0 !important;
+    }
+
+    .sfs-admin-sidebar-collapsed .sfs-admin-sidebar-top {
+        justify-content: center !important;
+    }
+
+    .sfs-admin-sidebar-collapsed .sfs-admin-sidebar-brand-expanded,
+    .sfs-admin-sidebar-collapsed .sfs-sidebar-section-title,
+    .sfs-admin-sidebar-collapsed .sfs-sidebar-item-title {
+        display: none !important;
+    }
+
+    .sfs-admin-sidebar-collapsed .sfs-admin-sidebar-brand-collapsed {
+        display: inline-flex;
+    }
+
+    .sfs-admin-sidebar-collapsed .sfs-admin-sidebar-desktop-toggle {
+        position: absolute;
+        top: 1.25rem;
+        right: 0.75rem;
+    }
+
+    .sfs-admin-sidebar-collapsed .sfs-sidebar-item {
+        justify-content: center;
+        padding-inline: 0.75rem;
+    }
+
+    .sfs-admin-sidebar-collapsed .sfs-sidebar-item.sfs-sidebar-item-active {
+        box-shadow: inset 3px 0 0 0 var(--bs-primary);
+    }
+
+    .sfs-admin-sidebar-collapsed .sfs-sidebar-item-icon {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .sfs-admin-sidebar.offcanvas {
+        height: 100vh;
+    }
+
+    .sfs-admin-main {
+        height: 100vh;
+    }
+
+    .sfs-admin-table-surface,
+    .sfs-admin-filters,
+    .sfs-admin-empty-state {
+        border-radius: 0.35rem;
+    }
+}

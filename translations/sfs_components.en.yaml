@@ -2,3 +2,12 @@ pager:
     total: "Total"
     prev: "Previous"
     next: "Next"
+layout:
+    sidebar:
+        open: "Open navigation"
+        close: "Close navigation"
+        toggle: "Collapse navigation"
+    user_menu:
+        profile: "Profile"
+        change_password: "Change password"
+        logout: "Logout"
