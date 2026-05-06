@@ -1,0 +1,24 @@
+{
+    "name": "@softspring/components",
+    "license": "MIT",
+    "version": "6.0.0-dev",
+    "type": "module",
+    "devDependencies": {
+        "@eslint/js": "^9.11.1",
+        "eslint": "^8.57.1",
+        "globals": "^15.9.0",
+        "bootstrap": "^5.3.3",
+        "sass": "^1.77.8"
+    },
+    "symfony": {
+        "importmap": {
+            "@softspring/components/admin-shell.js": {
+                "path": "assets/dist/admin-shell.js"
+            }
+        }
+    },
+    "scripts": {
+        "lint": "eslint assets",
+        "build": "node assets/build-dist.mjs"
+    }
+}
