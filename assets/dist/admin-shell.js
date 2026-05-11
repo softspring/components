@@ -55,3 +55,27 @@ if (document.readyState === 'loading') {
 } else {
     initSidebarToggles();
 }
+
+document.addEventListener('click', function (event) {
+    if (!event.target || !(event.target instanceof Element)) {
+        return;
+    }
+
+    if (event.target.closest('a')) {
+        return;
+    }
+
+    const row = event.target.closest('tr[data-row-href]');
+
+    if (!row) {
+        return;
+    }
+
+    const href = row.dataset.rowHref;
+
+    if (!href) {
+        return;
+    }
+
+    window.location.href = href;
+});

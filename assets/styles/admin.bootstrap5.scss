@@ -433,3 +433,8 @@
         border-radius: 0.35rem;
     }
 }
+
+.table tbody tr[data-row-href]:hover {
+    background: var(--sfs-admin-hover-bg);
+    cursor: pointer;
+}
