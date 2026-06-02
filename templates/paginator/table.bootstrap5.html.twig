@@ -28,7 +28,7 @@
                     <tbody>
                     {% for key,element in collection %}
                         {# TODO: make row clickable url configurable #}
-                        <tr>
+                        <tr {% block tr_attributes %}{% endblock %}>
                             {% block tds %}
                                 {# use element variable to show row data #}
                             {% endblock tds %}

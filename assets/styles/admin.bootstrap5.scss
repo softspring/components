@@ -438,3 +438,7 @@
     background: var(--sfs-admin-hover-bg);
     cursor: pointer;
 }
+
+.table tbody tr[data-row-href] .hidden-on-clickable-row {
+    display: none !important;
+}
