@@ -1,5 +1,5 @@
 {% trans_default_domain 'sfs_components' %}
-{% set body_classes = (body_classes|default('') ~ ' sfs-admin-layout overflow-hidden bg-body-tertiary')|trim %}
+{% set body_classes = (body_classes|default('') ~ ' sfs-admin-layout ' ~ (sfs_admin_lock_body_scroll|default(true) ? 'overflow-hidden ' : '') ~ 'bg-body-tertiary')|trim %}
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
