@@ -82,7 +82,7 @@ final class TemplatesTest extends TestCase
      */
     private function createTwig(array $definedRoutes = []): Environment
     {
-        $filesystemLoader = new FilesystemLoader();
+        $filesystemLoader = new FilesystemLoader([], __DIR__.'/../..');
         $filesystemLoader->addPath(__DIR__.'/../../templates', 'SfsComponents');
 
         $arrayLoader = new ArrayLoader([
