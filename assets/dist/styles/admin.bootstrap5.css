@@ -353,6 +353,14 @@
   font-size: 1rem;
 }
 
+.sfs-admin-sidebar-desktop-toggle {
+  position: absolute;
+  top: 1.25rem;
+  right: -1rem;
+  font-size: 1.2rem;
+  z-index: 9999;
+}
+
 @media (min-width: 992px) {
   .sfs-admin-sidebar.offcanvas-lg {
     position: sticky;
@@ -387,11 +395,6 @@
   .sfs-admin-sidebar-collapsed .sfs-admin-sidebar-brand-collapsed {
     display: inline-flex;
   }
-  .sfs-admin-sidebar-collapsed .sfs-admin-sidebar-desktop-toggle {
-    position: absolute;
-    top: 1.25rem;
-    right: 0.75rem;
-  }
   .sfs-admin-sidebar-collapsed .sfs-sidebar-item {
     justify-content: center;
     padding-inline: 0.75rem;
@@ -419,4 +422,8 @@
 .table tbody tr[data-row-href]:hover {
   background: var(--sfs-admin-hover-bg);
   cursor: pointer;
+}
+
+.table tbody tr[data-row-href] .hidden-on-clickable-row {
+  display: none !important;
 }
