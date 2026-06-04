@@ -35,6 +35,13 @@ jobs:
             -   name: Validate composer.json
                 run: composer validate --strict --no-check-lock
 
+            -   name: Allow prefer-lowest security advisory resolution
+                if: matrix.composer-prefer == '--prefer-lowest'
+                run: |
+                    composer config --global policy.advisories.block false \
+                    || composer config --global audit.block-insecure false \
+                    || true
+
             -   name: Cache Composer packages
                 id: composer-cache
                 uses: actions/cache@v5
