@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Softspring\Component\Components\Tests\Twig;
+namespace Softspring\Component\Components\Tests\Integration\Twig;
 
 use ArrayIterator;
 use Countable;
@@ -82,8 +82,8 @@ final class TemplatesTest extends TestCase
      */
     private function createTwig(array $definedRoutes = []): Environment
     {
-        $filesystemLoader = new FilesystemLoader([], __DIR__.'/../..');
-        $filesystemLoader->addPath(__DIR__.'/../../templates', 'SfsComponents');
+        $filesystemLoader = new FilesystemLoader([], __DIR__.'/../../..');
+        $filesystemLoader->addPath(__DIR__.'/../../../templates', 'SfsComponents');
 
         $arrayLoader = new ArrayLoader([
             'base.html.twig' => "{% extends '@SfsComponents/base.bootstrap5.html.twig' %}",
