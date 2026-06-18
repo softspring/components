@@ -6,7 +6,7 @@
 [![PHP Version](https://img.shields.io/packagist/dependency-v/softspring/components/php?style=flat-square)](https://github.com/softspring/components/blob/6.0/composer.json)
 [![Downloads](https://img.shields.io/packagist/dt/softspring/components?style=flat-square)](https://packagist.org/packages/softspring/components)
 [![CI](https://img.shields.io/github/actions/workflow/status/softspring/components/ci.yml?branch=6.0&style=flat-square&label=CI)](https://github.com/softspring/components/actions/workflows/ci.yml)
-[![Coverage](https://img.shields.io/codecov/c/github/softspring/components?branch=6.0&style=flat-square)](https://codecov.io/gh/softspring/components)
+[![Coverage](https://img.shields.io/codecov/c/github/softspring/components?branch=6.0&style=flat-square)](https://app.codecov.io/gh/softspring/components/tree/6.0)
 
 This package provides shared Twig layouts, paginators, sidebars, flash message templates, and admin form themes for Symfony applications.
 
