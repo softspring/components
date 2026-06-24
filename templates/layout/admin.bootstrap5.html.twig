@@ -19,6 +19,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 {% endblock %}
 
+{% block body_begin %}
+    <script>
+        (function () {
+            try {
+                if (
+                    window.matchMedia('(min-width: 992px)').matches
+                    && window.localStorage.getItem('sfs-components:admin-sidebar-collapsed') === '1'
+                ) {
+                    document.body.classList.add('sfs-admin-sidebar-collapsed');
+                }
+            } catch (error) {
+            }
+        })();
+    </script>
+{% endblock body_begin %}
+
 {% block body %}
     <div class="sfs-admin-shell d-flex vh-100 overflow-hidden">
         <aside id="sfs-admin-sidebar" class="sfs-admin-sidebar offcanvas-lg offcanvas-start border-end flex-shrink-0 h-100" tabindex="-1" aria-labelledby="sfs-admin-sidebar-title">
