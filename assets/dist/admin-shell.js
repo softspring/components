@@ -27,6 +27,7 @@ function writeStoredState(collapsed) {
     try {
         window.localStorage.setItem(STORAGE_KEY, collapsed ? '1' : '0');
     } catch (error) {
+        // Local storage can be unavailable, for example in private browsing mode.
     }
 }
 
