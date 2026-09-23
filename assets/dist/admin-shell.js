@@ -1,8 +1,14 @@
 const STORAGE_KEY = 'sfs-components:admin-sidebar-collapsed';
 const COLLAPSED_CLASS = 'sfs-admin-sidebar-collapsed';
 
+function getClassTargets() {
+    return [document.documentElement, document.body].filter(Boolean);
+}
+
 function setCollapsed(collapsed) {
-    document.body.classList.toggle(COLLAPSED_CLASS, collapsed);
+    getClassTargets().forEach((target) => {
+        target.classList.toggle(COLLAPSED_CLASS, collapsed);
+    });
 }
 
 function isDesktop() {
@@ -10,16 +16,23 @@ function isDesktop() {
 }
 
 function readStoredState() {
-    return window.localStorage.getItem(STORAGE_KEY) === '1';
+    try {
+        return window.localStorage.getItem(STORAGE_KEY) === '1';
+    } catch (error) {
+        return false;
+    }
 }
 
 function writeStoredState(collapsed) {
-    window.localStorage.setItem(STORAGE_KEY, collapsed ? '1' : '0');
+    try {
+        window.localStorage.setItem(STORAGE_KEY, collapsed ? '1' : '0');
+    } catch (error) {
+    }
 }
 
 function syncState() {
     if (!isDesktop()) {
-        document.body.classList.remove(COLLAPSED_CLASS);
+        setCollapsed(false);
         return;
     }
 
@@ -31,12 +44,21 @@ function handleToggle() {
         return;
     }
 
-    const collapsed = !document.body.classList.contains(COLLAPSED_CLASS);
+    const collapsed = !document.documentElement.classList.contains(COLLAPSED_CLASS);
     setCollapsed(collapsed);
     writeStoredState(collapsed);
 }
 
+syncState();
+
 function initSidebarToggles() {
+    if (window.sfsAdminSidebarInitialized) {
+        syncState();
+        return;
+    }
+
+    window.sfsAdminSidebarInitialized = true;
+
     document.querySelectorAll('[data-sfs-admin-sidebar-toggle="desktop"]').forEach((button) => {
         if (button.dataset.sfsAdminSidebarBound === '1') {
             return;
